@@ -23,17 +23,19 @@ public class Main {
         cat.takeForWalk();
 
         //Zadanie 2
-        Car myCar = new Car();
-        Human me = new Human();
+        Car myCar = new Car("Tesla","model S", 1500, 95000.50,85000.00);
+        Human me = new Human(myCar);
         me.firstName = "Slawomir";
         me.lastName = "Kobylko";
         me.age = 25;
-        me.car = myCar;
 
         //Zadanie 3 i 4
         me.getSalary();
         me.setSalary(1400.5);
         me.getSalary();
 
+        //Zadanie 5
+        me.setCar(myCar);
+        me.getCar();
     }
 }

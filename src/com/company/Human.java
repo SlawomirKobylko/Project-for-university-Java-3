@@ -10,7 +10,11 @@ public class Human {
     Integer age;
     private Double salary;
     Animal pet;
-    Car car;
+    private Car car;
+
+    Human(Car car){
+        this.car = car;
+    }
 
     //Zadanie 3 i 4
     Human (){
@@ -38,4 +42,19 @@ public class Human {
         }
     }
 
+    //Zadanie 5
+    Car getCar(){
+        return this.car;
+    }
+
+    void setCar(Car newCar){
+        if (this.salary > newCar.ofkoz) {
+            this.car = newCar;
+            System.out.println("Stać Cię na auto, możesz je kupić!");
+        }
+        else {
+            System.out.println("Nie możesz kupić !");
+            System.out.println("Do roboty!");
+        }
+    }
 }
