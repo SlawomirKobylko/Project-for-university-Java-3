@@ -29,8 +29,11 @@ public class Main {
         me.lastName = "Kobylko";
         me.age = 25;
         me.car = myCar;
-        //myCar.producer="Tesla";
-        //myCar.model = "model S";
+
+        //Zadanie 3 i 4
+        me.getSalary();
+        me.setSalary(1400.5);
+        me.getSalary();
 
     }
 }
