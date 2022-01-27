@@ -22,5 +22,15 @@ public class Main {
         cat.feed();
         cat.takeForWalk();
 
+        //Zadanie 2
+        Car myCar = new Car();
+        Human me = new Human();
+        me.firstName = "Slawomir";
+        me.lastName = "Kobylko";
+        me.age = 25;
+        me.car = myCar;
+        //myCar.producer="Tesla";
+        //myCar.model = "model S";
+
     }
 }

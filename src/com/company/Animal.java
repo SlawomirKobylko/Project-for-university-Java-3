@@ -21,7 +21,7 @@ public class Animal {
 
     void feed()
     {
-        if (this.alive = false || this.weight <=0)
+        if (!this.alive || this.weight <=0)
         {
             System.out.println("This animal is dead, " +
                     "It's don't have food");
