@@ -1,5 +1,8 @@
 package com.company;
 
+import devices.Car;
+import devices.Phone;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -37,5 +40,17 @@ public class Main {
         //Zadanie 5
         me.setCar(myCar);
         me.getCar();
+
+        //Zadanie 6
+        Car otherCar = new Car("Tesla","model S",1500,95000.50,85000.50);
+        Car anotherCar = otherCar;
+        System.out.println(cat);
+        System.out.println(otherCar==myCar);
+        System.out.println(myCar.equals(otherCar));
+        System.out.println(otherCar.equals(anotherCar));
+        System.out.println(cat.hashCode());
+        System.out.println(myCar.hashCode());
+        System.out.println(anotherCar.hashCode());
+        System.out.println(otherCar.hashCode());
     }
 }

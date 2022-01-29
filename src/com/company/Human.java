@@ -1,6 +1,5 @@
 package com.company;
-import java.time.LocalDate;
-import java.util.GregorianCalendar;
+import devices.Car;
 
 import java.util.Date;
 
@@ -56,5 +55,18 @@ public class Human {
             System.out.println("Nie możesz kupić !");
             System.out.println("Do roboty!");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", salary=" + salary +
+                ", pet=" + pet +
+                ", car=" + car +
+                ", Date=" + Date +
+                '}';
     }
 }

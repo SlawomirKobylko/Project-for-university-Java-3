@@ -19,6 +19,20 @@ public class Animal {
         }
     }
 
+    void introduceYourself()
+    {
+        System.out.println("I'm "+ this.name);
+    }
+    void doYouLike(String foodType)
+    {
+        if (this.species == "felis"&&foodType=="mouse")
+            System.out.println("yes, I like "+ foodType);
+        else
+        {
+            System.out.println("no ypu idiot");
+        }
+    }
+
     void feed()
     {
         if (!this.alive || this.weight <=0)
@@ -48,5 +62,17 @@ public class Animal {
             System.out.println("This weight of the animal was reduced to "+ this.weight + " kg");
         }
 
+    }
+
+    //Zadanie 6
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "species='" + species + '\'' +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", alive=" + alive +
+                ", weight=" + weight +
+                '}';
     }
 }
