@@ -9,6 +9,9 @@ public class Main {
         Integer x = 3;
         Animal dog = new Animal("canis");
         Animal cat = new Animal("felis");
+        cat.alive = true;
+        cat.name = "kitek";
+        cat.age = 3;
 
         dog.name = "Szarik";
         //Zadanie 1
@@ -52,5 +55,11 @@ public class Main {
         System.out.println(myCar.hashCode());
         System.out.println(anotherCar.hashCode());
         System.out.println(otherCar.hashCode());
+
+        System.out.println(cat);
+        System.out.println(myCar);
+        System.out.println(me);
+
+
     }
 }
