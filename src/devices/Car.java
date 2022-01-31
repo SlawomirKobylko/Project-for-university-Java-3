@@ -2,27 +2,42 @@ package devices;
 
 import java.util.Objects;
 
-public class Car {
+public class Car extends Device{
     //zadanie 2
-    final String model;
-    final String producer;
-    Integer weight;
-    Double cost;
+    //final String model;
+    //final String producer;
+    public Integer weight;
+    public Double cost;
     public Double ofkoz;
 
-    public Car (String producer, String model, Integer weight, Double cost, Double ofkoz){
-        this.producer = producer;
-        this.model = model;
+
+    //Zadanie 7
+    public Car(String producer, String model, Integer weight, Double cost, Double ofkoz, Integer yearOfProduction){
+        super(producer, model, yearOfProduction);
         this.weight = weight;
         this.cost = cost;
         this.ofkoz = ofkoz;
     }
 
     @Override
+    public void turnOn() {
+        System.out.println("I turn the key");
+    }
+
+    /*public Car (String producer, String model, Integer weight, Double cost, Double ofkoz){
+        this.producer = producer;
+        this.model = model;
+        this.weight = weight;
+        this.cost = cost;
+        this.ofkoz = ofkoz;
+    }*/
+
+    @Override
     public String toString() {
         return "Car{" +
-                "model='" + model + '\'' +
-                ", producer='" + producer + '\'' +
+                "producer='" + producer +'\'' +
+                ", model='" + model + '\'' +
+                ", yearOfproduction=" + yearOfProduction +
                 ", weight=" + weight +
                 ", cost=" + cost +
                 ", ofkoz=" + ofkoz +
@@ -39,8 +54,8 @@ public class Car {
             return false;
         }
         if (object instanceof Car) {
-            Car o = (Car) object;
-            if (producer.equals(o.producer) && model.equals(o.model) && weight == o.weight && cost == o.cost && ofkoz.equals(o.ofkoz)) {
+            Car obj = (Car) object;
+            if (producer.equals(obj.producer) && model.equals(obj.model) && weight == obj.weight && cost == obj.cost && ofkoz.equals(obj.ofkoz)) {
                 return true;
             } else {
                 return false;

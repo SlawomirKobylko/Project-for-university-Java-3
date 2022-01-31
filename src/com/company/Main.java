@@ -6,12 +6,20 @@ import devices.Phone;
 public class Main {
 
     public static void main(String[] args) {
+        //Zadanie 2
         Integer x = 3;
         Animal dog = new Animal("canis");
         Animal cat = new Animal("felis");
         cat.alive = true;
         cat.name = "kitek";
         cat.age = 3;
+        dog.age = 4;
+        dog.doYouLike("meet");
+        dog.introduceYourself();
+        cat.introduceYourself();
+        cat.introduceYourself();
+        cat.doYouLike("cheese");
+        cat.doYouLike("mouse");
 
         dog.name = "Szarik";
         //Zadanie 1
@@ -29,8 +37,8 @@ public class Main {
         cat.takeForWalk();
 
         //Zadanie 2
-        Car myCar = new Car("Tesla","model S", 1500, 95000.50,85000.00);
-        Human me = new Human(myCar);
+        Car myCar = new Car("Tesla","model S", 1500, 95000.50,85000.00, 2020);
+        Human me = new Human(1480.90, myCar);
         me.firstName = "Slawomir";
         me.lastName = "Kobylko";
         me.age = 25;
@@ -45,7 +53,8 @@ public class Main {
         me.getCar();
 
         //Zadanie 6
-        Car otherCar = new Car("Tesla","model S",1500,95000.50,85000.50);
+        Car otherCar = new Car
+                ("Tesla","model S",1500,95000.50,85000.50, 2020);
         Car anotherCar = otherCar;
         System.out.println(cat);
         System.out.println(otherCar==myCar);
@@ -60,6 +69,12 @@ public class Main {
         System.out.println(myCar);
         System.out.println(me);
 
+        //Zadanie 7
+        Phone myPhone = new Phone
+                ("Samsung", "Galaxy",2022, 6.7, "Android 10",2020);
+        System.out.println(myPhone);
 
+        myPhone.turnOn();
+        myCar.turnOn();
     }
 }

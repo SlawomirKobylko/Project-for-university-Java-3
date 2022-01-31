@@ -11,12 +11,10 @@ public class Human {
     Animal pet;
     private Car car;
 
-    Human(Car car){
-        this.car = car;
-    }
 
     //Zadanie 3 i 4
-    Human (){
+    Human (Double salary, Car car){
+        this.car = car;
         this.salary = 1200.00;
     }
 
