@@ -1,13 +1,16 @@
-package com.company;
+package creatures;
 
-public class Animal {
-    final String species; //zadanie 1
-    String name;
-    Integer age;
-    Boolean alive;
+import com.company.Human;
+import com.company.Salleable;
+
+public class Animal implements Salleable {
+    final public String species; //zadanie 1
+    public String name;
+    public Integer age;
+    public Boolean alive;
     private Double weight; //zadanie 1
 
-    Animal(String species) {
+    public Animal(String species) {
         this.species = species;
         this.alive = true;
         if (this.species == "canis") {
@@ -19,11 +22,11 @@ public class Animal {
         }
     }
 
-    void introduceYourself()
+    public void introduceYourself()
     {
         System.out.println("I'm "+ this.name);
     }
-    void doYouLike(String foodType)
+    public void doYouLike(String foodType)
     {
         if (this.species == "felis"&&foodType=="mouse")
             System.out.println("yes, I like "+ foodType);
@@ -33,7 +36,7 @@ public class Animal {
         }
     }
 
-    void feed()
+    public void feed()
     {
         if (!this.alive || this.weight <=0)
         {
@@ -47,7 +50,7 @@ public class Animal {
         }
     }
 
-    void takeForWalk()
+    public void takeForWalk()
     {
         this.weight-=1;
         if (this.weight<=0.0)
@@ -74,5 +77,30 @@ public class Animal {
                 ", alive=" + alive +
                 ", weight=" + weight +
                 '}';
+    }
+
+    //Zadanie 8
+    @Override
+    public void sale(Human seller, Human buyer, Double price) {
+        if (this instanceof Human) {
+            System.out.println("You can't sell people");
+        } else if (species == "homo sapiens") {
+            System.out.println("Human trade it's illegal!");
+        } else if (buyer.cash < price) {
+            System.out.println("The buyer have a too little money");
+        } else if (seller.pet == null) {
+            System.out.println("The seller don't have any animal");
+        } else if (!seller.pet.equals(this)) {
+            System.out.println("The seller don't have this animal");
+        } else if (!seller.pet.equals(this.alive)) {
+            System.out.println("This animal is ded, you don't have buy this animal");
+        }
+        else {
+            buyer.cash += price;
+            seller.cash -= price;
+            seller.pet = null;
+            buyer.pet = this;
+            System.out.println("Successful transaction, bought" + this);
+        }
     }
 }

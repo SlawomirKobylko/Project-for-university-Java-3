@@ -1,5 +1,6 @@
 package com.company;
 
+import creatures.Animal;
 import devices.Car;
 import devices.Phone;
 
@@ -76,5 +77,18 @@ public class Main {
 
         myPhone.turnOn();
         myCar.turnOn();
+
+        //Zadanie 8
+        me.cash = 10000.80;
+        me.pet = cat;
+        Human you = new Human(5000.50, otherCar);
+        Human politic = new Human (25000.90, anotherCar);
+        politic.cash = 100000.90;
+        you.cash = 13000.30;
+        myCar.sale(me, you, 4000.90);
+        anotherCar.sale(you, me, 109.90);
+        you.sale(me, politic, 1.1);
+        cat.sale(you, me, 100.20);
+        cat.sale(me, you, 100.30);
     }
 }

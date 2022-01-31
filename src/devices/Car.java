@@ -1,8 +1,10 @@
 package devices;
 
 import java.util.Objects;
+import com.company.Salleable;
+import com.company.Human;
 
-public class Car extends Device{
+public class Car extends Device implements Salleable {
     //zadanie 2
     //final String model;
     //final String producer;
@@ -12,7 +14,7 @@ public class Car extends Device{
 
 
     //Zadanie 7
-    public Car(String producer, String model, Integer weight, Double cost, Double ofkoz, Integer yearOfProduction){
+    public Car(String producer, String model, Integer weight, Double cost, Double ofkoz, Integer yearOfProduction) {
         super(producer, model, yearOfProduction);
         this.weight = weight;
         this.cost = cost;
@@ -35,7 +37,7 @@ public class Car extends Device{
     @Override
     public String toString() {
         return "Car{" +
-                "producer='" + producer +'\'' +
+                "producer='" + producer + '\'' +
                 ", model='" + model + '\'' +
                 ", yearOfproduction=" + yearOfProduction +
                 ", weight=" + weight +
@@ -77,4 +79,22 @@ public class Car extends Device{
 
     }
 
+    //Zadanie 8
+    @Override
+    public void sale(Human seller, Human buyer, Double price) {
+        if (buyer.cash < price) {
+            System.out.println("The buyer has too little money");
+        } else if (!seller.getCar().equals(this)){
+            System.out.println("The seller does not this car");
+        } else if (seller.getCar() == null) {
+            System.out.println("The seller does not own the car");
+        } else {
+            seller.cash += price;
+            buyer.cash -= price;
+            seller.car = null;
+            buyer.car = this;
+            System.out.println("Successful transaction, bought" + this);
+        }
+
+    }
 }

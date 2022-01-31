@@ -1,21 +1,24 @@
 package com.company;
-import devices.Car;
 
+import creatures.Animal;
+import devices.Car;
 import java.util.Date;
 
-public class Human {
+public class Human extends  Animal {
     String firstName;
     String lastName;
     Integer age;
     private Double salary;
-    Animal pet;
-    private Car car;
+    public Animal pet;
+    public  Car car;
+    public Double cash;    //Zadanie 8
 
 
     //Zadanie 3 i 4
-    Human (Double salary, Car car){
+    Human (Double salary ,Car car){
+        super("homo sampiens");
         this.car = car;
-        this.salary = 1200.00;
+        this.salary = salary;
     }
 
     private Object Date;
@@ -26,7 +29,7 @@ public class Human {
         return this.salary;
     }
 
-    void setSalary(Double salary) {
+    public void setSalary(Double salary) {
         if (salary > 0) {
             System.out.println("Nowe dane zostały wysłane do systemu księgowego.");
             System.out.println("Proszę odebrać aneks od umowy!");
@@ -40,7 +43,7 @@ public class Human {
     }
 
     //Zadanie 5
-    Car getCar(){
+    public Car getCar(){
         return this.car;
     }
 
@@ -66,5 +69,11 @@ public class Human {
                 ", car=" + car +
                 ", Date=" + Date +
                 '}';
+    }
+
+    //Zadanie 8
+    @Override
+    public void sale(Human seller, Human buyer, Double price) {
+        System.out.println("Human trade it's illegal!");
     }
 }
