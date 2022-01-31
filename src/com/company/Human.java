@@ -15,8 +15,8 @@ public class Human extends  Animal {
 
 
     //Zadanie 3 i 4
-    Human (Double salary ,Car car){
-        super("homo sampiens");
+    Human (Double salary, Integer age, Car car){
+        super("homo sampiens", age);
         this.car = car;
         this.salary = salary;
     }
@@ -75,5 +75,15 @@ public class Human extends  Animal {
     @Override
     public void sale(Human seller, Human buyer, Double price) {
         System.out.println("Human trade it's illegal!");
+    }
+
+    @Override
+    public void feed() {
+        super.feed();
+    }
+
+    @Override
+    public void feed(Double foodWeight) {
+        System.out.println("Mniam mniam, I ate "+ foodWeight + " of food");
     }
 }

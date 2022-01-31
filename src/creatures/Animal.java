@@ -3,15 +3,24 @@ package creatures;
 import com.company.Human;
 import com.company.Salleable;
 
-public class Animal implements Salleable {
-    final public String species; //zadanie 1
-    public String name;
-    public Integer age;
+public abstract class Animal implements Salleable, Feedable {
+    public String species; //zadanie 1
+    public  String name;
+    public final Integer age;
     public Boolean alive;
     private Double weight; //zadanie 1
 
-    public Animal(String species) {
+    /*public Animal (String species, String name, Integer age, Boolean alive, Double weight)
+    {
         this.species = species;
+        this.name = name;
+        this.age = age;
+        this.alive = alive;
+        this.weight = weight;
+    }*/
+    public Animal(String species, Integer age) {
+        this.species = species;
+        this.age = age;
         this.alive = true;
         if (this.species == "canis") {
             this.weight = 12.0;
@@ -32,7 +41,7 @@ public class Animal implements Salleable {
             System.out.println("yes, I like "+ foodType);
         else
         {
-            System.out.println("no ypu idiot");
+            System.out.println("no you idiot");
         }
     }
 
