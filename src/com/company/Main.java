@@ -4,11 +4,15 @@ import creatures.Animal;
 import creatures.FarmAnimal;
 import creatures.Pet;
 import devices.Car;
+import devices.Electric;
 import devices.Phone;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MalformedURLException {
         //Zadanie 2
         Integer x = 3;
         Pet dog = new Pet("canis", "reksio", 4);
@@ -41,7 +45,7 @@ public class Main {
         cat.takeForWalk();
 
         //Zadanie 2
-        Car myCar = new Car("Tesla","model S", 1500, 95000.50,85000.00, 2020);
+        Electric myCar = new Electric("Tesla","model S", 1500, 95000.50,85000.00, 2020);
         Human me = new Human(1480.90, 25, myCar);
         me.firstName = "Slawomir";
         me.lastName = "Kobylko";
@@ -57,7 +61,7 @@ public class Main {
         me.getCar();
 
         //Zadanie 6
-        Car otherCar = new Car
+        Electric otherCar = new Electric
                 ("Tesla","model S",1500,95000.50,85000.50, 2020);
         Car anotherCar = otherCar;
         System.out.println(cat);
@@ -106,5 +110,14 @@ public class Main {
         cow.beEaten();
         kitty.feed();
         kitty.feed(3.3);
+
+        //Zadanie 10
+        otherCar.refuel();
+        myCar.refuel();
+        anotherCar.refuel();
+
+        URL url = new URL("https://www.google.com/");
+
+        myPhone.installAnApp(url);
     }
 }

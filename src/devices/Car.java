@@ -4,7 +4,7 @@ import java.util.Objects;
 import com.company.Salleable;
 import com.company.Human;
 
-public class Car extends Device implements Salleable {
+public abstract class Car extends Device implements Salleable {
     //zadanie 2
     //final String model;
     //final String producer;
@@ -97,4 +97,7 @@ public class Car extends Device implements Salleable {
         }
 
     }
+
+    //Zadanie 10
+    abstract public void refuel();
 }
