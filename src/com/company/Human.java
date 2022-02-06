@@ -3,21 +3,29 @@ package com.company;
 import creatures.Animal;
 import devices.Car;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Human extends  Animal {
+    private static final int GARAGE_SIZE = 4;
     String firstName;
     String lastName;
     Integer age;
     private Double salary;
     public Animal pet;
-    public  Car car;
+    public  Car [] garage;
     public Double cash;    //Zadanie 8
 
+
+    Human(Integer GARAGE_SIZE) {
+        super("homo sapiens", 32);
+        this.salary = 1200.0;
+        this.garage = new Car[GARAGE_SIZE];
+    }
 
     //Zadanie 3 i 4
     Human (Double salary, Integer age, Car car){
         super("homo sampiens", age);
-        this.car = car;
+        this.garage = new Car[GARAGE_SIZE];
         this.salary = salary;
     }
 
@@ -43,13 +51,14 @@ public class Human extends  Animal {
     }
 
     //Zadanie 5
-    public Car getCar(){
-        return this.car;
+    public Car getCar(Integer ParkingLotOfNumber){
+        return this.garage[ParkingLotOfNumber];
     }
 
-    void setCar(Car newCar){
-        if (this.salary > newCar.ofkoz) {
-            this.car = newCar;
+    void setCar(Car newCar, Integer ParkingLotOfNumber){
+        if (this.salary > newCar.value) {
+            this.garage[ParkingLotOfNumber] = newCar;
+            Scanner location = new Scanner(System.in);
             System.out.println("Stać Cię na auto, możesz je kupić!");
         }
         else {
@@ -66,7 +75,7 @@ public class Human extends  Animal {
                 ", age=" + age +
                 ", salary=" + salary +
                 ", pet=" + pet +
-                ", car=" + car +
+                ", garage=" + garage +
                 ", Date=" + Date +
                 '}';
     }
@@ -86,4 +95,58 @@ public class Human extends  Animal {
     public void feed(Double foodWeight) {
         System.out.println("Mniam mniam, I ate "+ foodWeight + " of food");
     }
+
+    public boolean hasCar(Car car) {
+        try{
+            for (int i = 0; i < this.garage.length; i++) {
+                if (this.garage[i] == car) {
+                    return true;
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
+    public boolean hasFreeParkingLot() {
+        try {
+            for (int i = 0; i < this.garage.length; i++) {
+                if (this.garage[i] == null) {
+                    return true;
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }return false;
+    }
+
+
+    public void removeCar (Car car){
+        for (int i = 0; i < this.garage.length; i++) {
+            if (this.garage[i] == car) {
+                this.garage[i] = null;
+                break;
+            }
+        }
+    }
+
+    public void addCar (Car car){
+        for (int i = 0; i < this.garage.length; i++) {
+            if (this.garage[i] == null) {
+                this.garage[i] = car;
+                break;
+            }
+        }
+    }
+
+    public double totalValueOfCars () {
+        double value = 0;
+        for (int i = 0; i < this.garage.length; i++) {
+            value += getCar(i).value;
+        }
+        return value;
+    }
+
 }

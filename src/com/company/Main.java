@@ -3,9 +3,7 @@ package com.company;
 import creatures.Animal;
 import creatures.FarmAnimal;
 import creatures.Pet;
-import devices.Car;
-import devices.Electric;
-import devices.Phone;
+import devices.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -57,8 +55,8 @@ public class Main {
         me.getSalary();
 
         //Zadanie 5
-        me.setCar(myCar);
-        me.getCar();
+        //me.setCar(myCar,0);
+        //me.getCar(0);
 
         //Zadanie 6
         Electric otherCar = new Electric
@@ -79,7 +77,7 @@ public class Main {
 
         //Zadanie 7
         Phone myPhone = new Phone
-                ("Samsung", "Galaxy",2022, 6.7, "Android 10",2020);
+                ("Samsung", "Galaxy",2022, 6.7, "Android 10",2020, 2000.20);
         System.out.println(myPhone);
 
         myPhone.turnOn();
@@ -118,6 +116,29 @@ public class Main {
 
         URL url = new URL("https://www.google.com/");
 
-        myPhone.installAnApp(url);
+        //myPhone.installAnApp(url);
+        //myPhone.installAnApp("Ghost Rider");
+
+        LPG peugeot = new LPG("Peugeot", "407", 1400, 25000.0, 20000.0, 2005);
+        Diesel passat = new Diesel("Volkswagen", "Passat", 1300, 5000.0, 4000.9, 1995);
+        Electric BMW = new Electric("BMW","I8", 2000, 300000.5, 250000.5, 2020);
+
+        //me.garage[0] = peugeot;
+        //me.garage[1] = passat;
+        //me.garage[2] = BMW;
+
+        me.addCar(peugeot);
+        me.addCar(passat);
+        me.addCar(BMW);
+
+        System.out.println(me.hasCar(myCar));
+        System.out.println(me.hasCar(otherCar));
+        System.out.println(me.hasFreeParkingLot());
+        you.removeCar(peugeot);
+        System.out.println(me.totalValueOfCars());
+
+
+
+
     }
 }

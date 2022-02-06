@@ -33,8 +33,8 @@ public class Phone extends Device{
 
 
     //Zadanie 7
-    public Phone (String producer, String model, Integer yearOfProduction, Double screenSize, String OSversion, Integer yearof){
-        super(producer, model, yearOfProduction);
+    public Phone (String producer, String model, Integer yearOfProduction, Double screenSize, String OSversion, Integer yearof, Double value){
+        super(producer, model, yearOfProduction, value);
         this.screenSize = screenSize;
         this.OSversion = OSversion;
         this.yearOf = yearof;
